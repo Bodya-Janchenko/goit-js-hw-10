@@ -73,8 +73,17 @@ buttonEl.addEventListener('click', () => {
     if (needWaitTime <= 0) {
       clearInterval(timerId);
       inputEl.removeAttribute('disabled');
+
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+
+      return;
     }
+
     convertMs(needWaitTime);
+
     const { days, hours, minutes, seconds } = convertMs(needWaitTime);
     daysEl.textContent = zeroWriter(days);
     hoursEl.textContent = zeroWriter(hours);
